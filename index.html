@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minting Simulator</title>
+
+    <style>
+@font-face {
+    font-family: georgecafe;
+    src: url('/css/Louis\ George\ Cafe.ttf');
+}
+@font-face {
+    font-family: milkynice;
+    src: url('/css/MilkyNice.ttf');
+}
+#hatrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#hatrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#hatrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#hatrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#hatrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#clothingrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#clothingrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#clothingrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#clothingrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#clothingrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#mouthrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#mouthrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#mouthrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#mouthrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#mouthrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#eyesrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#eyesrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#eyesrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#eyesrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#eyesrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#accessoriesrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#accessoriesrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#accessoriesrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#accessoriesrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#accessoriesrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#skintexturerarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#skintexturerarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#skintexturerarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#skintexturerarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#skintexturerarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#earringsrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#earringsrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#earringsrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#earringsrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#earringsrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+#backgroundrarityidcommon {
+    color: #707070;
+    font-family: milkynice;
+}
+#backgroundrarityiduncommon {
+    color: #65854c;
+    font-family: milkynice;
+}
+#backgroundrarityidrare {
+    color: #458da2;
+    font-family: milkynice;
+}
+#backgroundrarityidsuperrare {
+    color: #5e389a;
+    font-family: milkynice;
+}
+#backgroundrarityidlegendary {
+    color: #a38a4c;
+    font-family: milkynice;
+}
+.header {
+    border: none;
+    padding: 15px 30px;
+    font-family: milkynice;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 30px;
+}
+.column {
+    float: left;
+    width: 18%;
+    margin: 25px 10px 0px 25px;
+}
+h1 {
+    font-family: milkynice;
+    font-size: 30px;
+    margin: 0px 0px 5px 0px;
+}
+h2 {
+    color: white;
+    font-family: georgecafe;
+    font-size: 15px;
+    margin: 5px 0px 5px 0px;
+}
+ul {
+    color: white;
+    font-family: georgecafe;
+    margin: 5px 0px 5px 0px;
+}
+#outputdiv {
+    background-color: #1e4956;
+    border-color: #48bfe3;
+    padding: 20px;
+    border-radius: 30px;
+    border-style: solid;
+    color: white;
+    margin: 25px 10px 0px 25px;
+}
+#common {
+    background-color: #707070;
+}
+#uncommon {
+    background-color: #65854c;
+}
+#rare {
+    background-color: #458da2;
+}
+#superrare {
+    background-color: #5e389a;
+}
+#legendary {
+    background-color: #a38a4c;
+}
+#mintbutton:hover {
+    background-color: #3ba1bf;
+}
+#mintbutton {
+    margin: 10px 0px 0px 0px;
+    background-color: #48BFE3;
+    color: white;
+    font-family: milkynice;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+body {
+    background-color: #212529;
+}
+#commonborder {
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 15px 15px 15px 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #707070;
+    border-style: solid;
+    border-color: #ADB5BD;
+}
+#uncommonborder {
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 15px 15px 15px 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #65854c;
+    border-style: solid;
+    border-color: #90BE6D;
+}
+#rareborder {
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 15px 15px 15px 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #458da2;
+    border-style: solid;
+    border-color: #62C9E8;
+}
+#superrareborder {
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 15px 15px 15px 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #5e389a;
+    border-style: solid;
+    border-color: #8650DC;
+}
+#legendaryborder {
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 15px 15px 15px 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #a38a4c;
+    border-style: solid;
+    border-color: #E9C56D;
+}
+#minttitle {
+    background-color: #48BFE3;
+    color: white;
+    font-family: milkynice;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 30px;
+    margin: 0px 0px 10px 0px;
+}
+#hatoutputnone {
+    color: #cc3325;
+    font-family: milkynice;
+}
+#accessoriesoutputnone {
+    color: #cc3325;
+    font-family: milkynice;
+}
+#earringsoutputnone {
+    color: #cc3325;
+    font-family: milkynice;
+}
+.outputheaders {
+    margin: 2px 5px 2px 0px;
+    border: none;
+    border-radius: 10px;
+    background-color: #48BFE3;
+    color: white;
+    font-family: milkynice;
+}
+    </style>
+</head>
+<body>
+    <div id="outputdiv">
+        <button id="minttitle">Mint a Blockhead</button>
+        <ul>
+            <li><button class="outputheaders">Hat:</button> <span id="hatoutput"></span><span id="hatoutputnone"></span> <span id="hatrarityidcommon"></span><span id="hatrarityiduncommon"></span><span id="hatrarityidrare"></span><span id="hatrarityidsuperrare"></span><span id="hatrarityidlegendary"></span></li>
+            <li><button class="outputheaders">Clothing:</button> <span id="clothingoutput"></span> <span id="clothingrarityidcommon"></span><span id="clothingrarityiduncommon"></span><span id="clothingrarityidrare"></span><span id="clothingrarityidsuperrare"></span><span id="clothingrarityidlegendary"></span></li>
+            <li><button class="outputheaders">Mouth:</button> <span id="mouthoutput"></span> <span id="mouthrarityidcommon"></span><span id="mouthrarityiduncommon"></span><span id="mouthrarityidrare"></span><span id="mouthrarityidsuperrare"></span><span id="mouthrarityidlegendary"></span></li>
+            <li><button class="outputheaders">Eyes:</button> <span id="eyesoutput"></span> <span id="eyesrarityidcommon"></span><span id="eyesrarityiduncommon"></span><span id="eyesrarityidrare"></span><span id="eyesrarityidsuperrare"></span><span id="eyesrarityidlegendary"></span></li>
+            <li><button class="outputheaders">Accessories:</button> <span id="accessoriesoutput"></span><span id="accessoriesoutputnone"></span> <span id="accessoriesrarityidcommon"></span><span id="accessoriesrarityiduncommon"></span><span id="accessoriesrarityidrare"></span><span id="accessoriesrarityidsuperrare"></span><span id="accessoriesrarityidlegendary"></span></li>
+            <li><button class="outputheaders">Skin Texture:</button> <span id="skintextureoutput"></span> <span id="skintexturerarityidcommon"></span><span id="skintexturerarityiduncommon"></span><span id="skintexturerarityidrare"></span><span id="skintexturerarityidsuperrare"></span><span id="skintexturerarityidlegendary"></span></li>
+            <li><button class="outputheaders">Earrings:</button> <span id="earringsoutput"></span><span id="earringsoutputnone"></span> <span id="earringsrarityidcommon"></span><span id="earringsrarityiduncommon"></span><span id="earringsrarityidrare"></span><span id="earringsrarityidsuperrare"></span><span id="earringsrarityidlegendary"></span></li>
+            <li><button class="outputheaders">Background:</button> <span id="backgroundoutput"></span> <span id="backgroundrarityidcommon"></span><span id="backgroundrarityiduncommon"></span><span id="backgroundrarityidrare"></span><span id="backgroundrarityidsuperrare"></span><span id="backgroundrarityidlegendary"></span></li>
+        </ul>
+        <button id="mintbutton" onclick="chooseHat();chooseClothing();chooseMouth();chooseEyes();chooseAccessories();chooseSkinTexture();chooseEarrings();chooseBackground();">Mint</button>
+    </div>
+    <div class="row">
+        <div class="column">
+            <button class="header" id="common" style="color: white">Common</button>
+            <div id="commonborder">
+            <h2>Hats</h2>
+            <ul>
+                <li>Bandana (10.78%)</li>
+                <li>Beanie (10.65%)</li>
+                <li>Farmer (9.57%)</li>
+                <li>Police (8.76%)</li>
+                <li>Trucker (8.67%)</li>
+            </ul>
+            <h2>Clothing</h2>
+            <ul>
+                <li>Tie Dye Shirt (12.43%)</li>
+                <li>Black Hoodie (12.34%)</li>
+                <li>White Shirt (11.34%)</li>
+                <li>Green Hoodie (10.98%)</li>
+                <li>Blue Hoodie (10.01%)</li>
+                <li>Red Hoodie (9.47%)</li>
+                <li>White Hoodie (9.18%)</li>
+            </ul>
+            <h2>Mouth</h2>
+            <ul>
+                <li>Neutral (12.79%)</li>
+                <li>Squiggle (11.93%)</li>
+                <li>Smirk (10.92%)</li>
+                <li>Smile (10.38%)</li>
+                <li>Frown (9.99%)</li>
+            </ul>
+            <h2>Eyes</h2>
+            <ul>
+                <li>Happy (27.42%)</li>
+                <li>Normal (23.58%)</li>
+                <li>Angry (19.75%)</li>
+            </ul>
+            <h2>Accessories</h2>
+            <ul>
+                <li>Star Glasses (11.54%)</li>
+                <li>Flame Glasses (10.23%)</li>
+                <li>Peace Glasses (9.67%)</li>
+                <li>Aviator Glasses (8.87%)</li>
+            </ul>
+            <h2>Skin Texture</h2>
+            <ul>
+                <li>Yellow (12.12%)</li>
+                <li>Blue (11.99%)</li>
+                <li>Silver (11.80%)</li>
+                <li>Purple (11.40%)</li>
+                <li>White (10.73%)</li>
+                <li>Black (10.29%)</li>
+                <li>Red (9.96%)</li>
+            </ul>
+            <h2>Earrings</h2>
+            <ul>
+                <li>Silver Stud (17.58%)</li>
+                <li>Peace Sign (17.47%)</li>
+                <li>Cross (16.75%)</li>
+            </ul>
+            <h2>Background</h2>
+            <ul>
+                <li>Grey (35.00%)</li>
+            </ul>
+        </div>
+    </div>
+        <div class="column">
+            <button class="header" id="uncommon" style="color: white;">Uncommon</button>
+            <div id="uncommonborder">
+            <h2>Hats</h2>
+            <ul>
+                <li>Ponytail (7.46%)</li>
+                <li>Headband (6.74%)</li>
+                <li>Straw Hat (5.67%)</li>
+                <li>Viking Hat (5.37%)</li>
+                <li>Classy (4.98%)</li>
+            </ul>
+            <h2>Clothing</h2>
+            <ul>
+                <li>Red Robe (4.66%)</li>
+                <li>Green Robe (3.62%)</li>
+                <li>Blue Robe (3.44%)</li>
+                <li>White Robe (3.11%)</li>
+                <li>Black Robe (2.88%)</li>
+            </ul>
+            <h2>Mouth</h2>
+            <ul>
+                <li>Big Smile (7.81%)</li>
+                <li>Big Tooth (7.56%)</li>
+                <li>Plump Lips (6.54%)</li>
+                <li>Drool (6.46%)</li>
+                <li>Tongue (6.45%)</li>
+            </ul>
+            <h2>Eyes</h2>
+            <ul>
+                <li>Closed (8.91%)</li>
+                <li>Sad (7.76%)</li>
+                <li>Flames (6.43%)</li>
+            </ul>
+            <h2>Accessories</h2>
+            <ul>
+                <li>Nerd Glasses (3.79%)</li>
+                <li>Monocle (2.10%)</li>
+            </ul>
+            <h2>Skin Texture</h2>
+            <ul>
+                <li>Blue Camo (4.21%)</li>
+                <li>Cow (4.11%)</li>
+                <li>Zebra (3.89%)</li>
+                <li>Cheetah (3.55%)</li>
+            </ul>
+            <h2>Earrings</h2>
+            <ul>
+                <li>Diamond Stud (13.76%)</li>
+                <li>Gold Hoop (12.54%)</li>
+            </ul>
+            <h2>Background</h2>
+            <ul>
+                <li>Green (30.00%)</li>
+            </ul>
+        </div>
+    </div>
+        <div class="column">
+            <button class="header" id="rare" style="color: white;">Rare</button>
+            <div id="rareborder">
+            <h2>Hats</h2>
+            <ul>
+                <li>Genie Hat (3.47%)</li>
+                <li>Horns (2.98%)</li>
+                <li>Rainbow Mohawk (2.66%)</li>
+            </ul>
+            <h2>Clothing</h2>
+            <ul>
+                <li>Zebra Shirt (1.45%)</li>
+                <li>Gold Jacket (1.21%)</li>
+                <li>Turtleneck (1.03%)</li>
+                <li>Rainbow Jacket (0.88%)</li>
+            </ul>
+            <h2>Mouth</h2>
+            <ul>
+                <li>Vampire (2.65%)</li>
+                <li>Curly Mustache (2.54%)</li>
+                <li>Hotdog (1.98%)</li>
+            </ul>
+            <h2>Eyes</h2>
+            <ul>
+                <li>Swirly (3.24%)</li>
+                <li>Black Holes (1.53%)</li>
+            </ul>
+            <h2>Accessories</h2>
+            <ul>
+                <li>Face Mask (1.51%)</li>
+                <li>Designer Glasses (1.08%)</li>
+            </ul>
+            <h2>Skin Texture</h2>
+            <ul>
+                <li>Rainbow (1.77%)</li>
+                <li>Psychedelic (1.54%)</li>
+                <li>Webbed Red (1.33%)</li>
+            </ul>
+            <h2>Earrings</h2>
+            <ul>
+                <li>Dangling Ruby (7.85%)</li>
+            </ul>
+            <h2>Background</h2>
+            <ul>
+                <li>Blue (20.00%)</li>
+            </ul>
+        </div>
+    </div>
+        <div class="column">
+            <button class="header" id="superrare" style="color: white;">Super Rare</button>
+            <div id="superrareborder">
+            <h2>Hats</h2>
+            <ul>
+                <li>Wizard (0.97%)</li>
+                <li>Headphones (0.86%)</li>
+            </ul>
+            <h2>Clothing</h2>
+            <ul>
+                <li>Karate Gi (0.73%)</li>
+                <li>Cheetah Robe (0.56%)</li>
+                <li>Zebra Robe (0.37%)</li>
+            </ul>
+            <h2>Mouth</h2>
+            <ul>
+                <li>Pizza (0.79%)</li>
+                <li>Robot (0.87%)</li>
+            </ul>
+            <h2>Eyes</h2>
+            <ul>
+                <li>Laser Beams (0.56%)</li>
+                <li>Rainbow (0.52%)</li>
+            </ul>
+            <h2>Accessories</h2>
+            <ul>
+                <li>Clout Glasses (0.54%)</li>
+                <li>VR Headset (0.49%)</li>
+            </ul>
+            <h2>Skin Texture</h2>
+            <ul>
+                <li>Abstract (0.71%)</li>
+                <li>Gold (0.45%)</li>
+            </ul>
+            <h2>Earrings</h2>
+            <ul>
+                <li>Lightning (3.08%)</li>
+            </ul>
+            <h2>Background</h2>
+            <ul>
+                <li>Purple (10.00%)</li>
+            </ul>
+        </div>
+    </div>
+        <div class="column">
+            <button class="header" id="legendary" style="color: white;">Legendary</button>
+            <div id="legendaryborder">
+            <h2>Hats</h2>
+            <ul>
+                <li>Crown (0.23%)</li>
+                <li>Halo (0.18%)</li>
+            </ul>
+            <h2>Clothing</h2>
+            <ul>
+                <li>Monk Robe (0.19%)</li>
+                <li>Gold Suit (0.12%)</li>
+            </ul>
+            <h2>Mouth</h2>
+            <ul>
+                <li>Bubble Gum (0.24%)</li>
+                <li>Rainbow Puke (0.10%)</li>
+            </ul>
+            <h2>Eyes</h2>
+            <ul>
+                <li>Bitcoin (0.19%)</li>
+                <li>Zombie (0.11%)</li>
+            </ul>
+            <h2>Accessories</h2>
+            <ul>
+                <li>Ski Goggles (0.18%)</li>
+            </ul>
+            <h2>Skin Texture</h2>
+            <ul>
+                <li>Zombie (0.15%)</li>
+            </ul>
+            <h2>Earrings</h2>
+            <ul>
+                <li>Bitcoin (0.97%)</li>
+            </ul>
+            <h2>Background</h2>
+            <ul>
+                <li>Gold (5.00%)</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <script>
+        var hatoutput = document.getElementById("hatoutput");
+        var clothingoutput = document.getElementById("clothingoutput");
+        var mouthoutput = document.getElementById("mouthoutput");
+        var eyesoutput = document.getElementById("eyesoutput");
+        var accessoriesoutput = document.getElementById("accessoriesoutput");
+        var skintextureoutput = document.getElementById("skintextureoutput");
+        var earringsoutput = document.getElementById("earringsoutput");
+        var backgroundoutput = document.getElementById("backgroundoutput");
+        //gets a random number from 1-10000
+        //math.random gets a number from 0-1 in decimal
+        //math.floor makes it a whole number but it would always input 0 since it rounds down
+        //+ 1 adds 1 to 0 making it 1
+        //* 10000 makes it range from 1 - 10000 instead of 1 - 1
+        function chooseHat(){
+            var hatpercentage = Math.floor(Math.random() * 10000) + 1;
+            if (hatpercentage >= 0 && hatpercentage <= 1078) {
+                hatoutput.innerHTML = "Bandana";
+                var hatchoice = "Bandana"
+            } else if (hatpercentage > 1078 && hatpercentage <= 2143) {
+                hatoutput.innerHTML = "Beanie";
+                var hatchoice = "Beanie"
+            } else if (hatpercentage > 2143 && hatpercentage <= 3100) {
+                hatoutput.innerHTML = "Farmer";
+                var hatchoice = "Farmer"
+            } else if (hatpercentage > 3100 && hatpercentage <= 3976) {
+                hatoutput.innerHTML = "Police";
+                var hatchoice = "Police"
+            } else if (hatpercentage > 3976 && hatpercentage <= 4843) {
+                hatoutput.innerHTML = "Trucker";
+                var hatchoice = "Trucker"
+            } else if (hatpercentage > 4843 && hatpercentage <= 5589) {
+                hatoutput.innerHTML = "Ponytail";
+                var hatchoice = "Ponytail"
+            } else if (hatpercentage > 5589 && hatpercentage <= 6263) {
+                hatoutput.innerHTML = "Headband";
+                var hatchoice = "Headband"
+            } else if (hatpercentage > 6263 && hatpercentage <= 6830) {
+                hatoutput.innerHTML = "Straw Hat";
+                var hatchoice = "Straw Hat"
+            } else if (hatpercentage > 6830 && hatpercentage <= 7367) {
+                hatoutput.innerHTML = "Viking Hat";
+                var hatchoice = "Viking Hat"
+            } else if (hatpercentage > 7367 && hatpercentage <= 7865) {
+                hatoutput.innerHTML = "Classy";
+                var hatchoice = "Classy"
+            } else if (hatpercentage > 7865 && hatpercentage <= 8212) {
+                hatoutput.innerHTML = "Genie Hat";
+                var hatchoice = "Genie Hat"
+            } else if (hatpercentage > 8212 && hatpercentage <= 8510) {
+                hatoutput.innerHTML = "Horns"
+                var hatchoice = "Horns"
+            } else if (hatpercentage > 8510 && hatpercentage <= 8776) {
+                hatoutput.innerHTML = "Rainbow Mowhawk"
+                var hatchoice = "Rainbow Mowhawk"
+            } else if (hatpercentage > 8776 && hatpercentage <= 8873) {
+                hatoutput.innerHTML = "Wizard";
+                var hatchoice = "Wizard"
+            } else if (hatpercentage > 8873 && hatpercentage <= 8959) {
+                hatoutput.innerHTML = "Headphones";
+                var hatchoice = "Headphones"
+            } else if (hatpercentage > 8959 && hatpercentage <= 8982) {
+                hatoutput.innerHTML = "Crown";
+                var hatchoice = "Crown"
+            } else if (hatpercentage > 8982 && hatpercentage <= 9000) {
+                hatoutput.innerHTML = "Halo";
+                var hatchoice = "Halo"
+            } else {
+                hatoutputnone.innerHTML = "No Hat";
+            }
+            var commonhats = ["Bandana", "Beanie", "Farmer", "Police", "Trucker"];
+            var uncommonhats = ["Ponytail", "Headband", "Straw Hat", "Viking Hat", "Classy"];
+            var rarehats = ["Genie Hat", "Horns", "Rainbow Mowhawk"];
+            var superrarehats = ["Wizard", "Headphones"];
+            var legendaryhats = ["Crown", "Halo"];
+            if (commonhats.includes(hatchoice)) {
+                hatrarityidcommon.innerHTML = "Common";
+                hatrarityiduncommon.innerHTML = "";
+                hatrarityidrare.innerHTML = "";
+                hatrarityidsuperrare.innerHTML = "";
+                hatrarityidlegendary.innerHTML = "";
+                hatoutputnone.innerHTML = "";
+            } else if (uncommonhats.includes(hatchoice)) {
+                hatrarityidcommon.innerHTML = "";
+                hatrarityiduncommon.innerHTML = "Uncommon";
+                hatrarityidrare.innerHTML = "";
+                hatrarityidsuperrare.innerHTML = "";
+                hatrarityidlegendary.innerHTML = "";
+                hatoutputnone.innerHTML = "";
+            } else if (rarehats.includes(hatchoice)) {
+                hatrarityidcommon.innerHTML = "";
+                hatrarityiduncommon.innerHTML = "";
+                hatrarityidrare.innerHTML = "Rare";
+                hatrarityidsuperrare.innerHTML = "";
+                hatrarityidlegendary.innerHTML = "";
+                hatoutputnone.innerHTML = "";
+            } else if (superrarehats.includes(hatchoice)) {
+                hatrarityidcommon.innerHTML = "";
+                hatrarityiduncommon.innerHTML = "";
+                hatrarityidrare.innerHTML = "";
+                hatrarityidsuperrare.innerHTML = "Super Rare";
+                hatrarityidlegendary.innerHTML = "";
+                hatoutputnone.innerHTML = "";
+            } else if (legendaryhats.includes(hatchoice)) {
+                hatrarityidcommon.innerHTML = "";
+                hatrarityiduncommon.innerHTML = "";
+                hatrarityidrare.innerHTML = "";
+                hatrarityidsuperrare.innerHTML = "";
+                hatrarityidlegendary.innerHTML = "Legendary";
+                hatoutputnone.innerHTML = "";
+            } else {
+                hatrarityidcommon.innerHTML = "";
+                hatrarityiduncommon.innerHTML = "";
+                hatrarityidrare.innerHTML = "";
+                hatrarityidsuperrare.innerHTML = "";
+                hatrarityidlegendary.innerHTML = "";
+                hatoutput.innerHTML = "";
+            }
+        };
+        function chooseClothing(){
+            var clothingpercentage = Math.floor(Math.random() * 10000) + 1;
+            if (clothingpercentage >= 0 && clothingpercentage <= 1243) {
+                clothingoutput.innerHTML = "Tie Dye Shirt";
+                var clothingchoice = "Tie Dye Shirt"
+            } else if (clothingpercentage > 1243 && clothingpercentage <= 2477) {
+                clothingoutput.innerHTML = "Black Hoodie";
+                var clothingchoice = "Black Hoodie"
+            } else if (clothingpercentage > 2477 && clothingpercentage <= 3611) {
+                clothingoutput.innerHTML = "White Shirt";
+                var clothingchoice = "White Shirt"
+            } else if (clothingpercentage > 3611 && clothingpercentage <= 4709) {
+                clothingoutput.innerHTML = "Green Hoodie";
+                var clothingchoice = "Green Hoodie"
+            } else if (clothingpercentage > 4709 && clothingpercentage <= 5710) {
+                clothingoutput.innerHTML = "Blue Hoodie";
+                var clothingchoice = "Blue Hoodie"
+            } else if (clothingpercentage > 5710 && clothingpercentage <= 6657) {
+                clothingoutput.innerHTML = "Red Hoodie";
+                var clothingchoice = "Red Hoodie"
+            } else if (clothingpercentage > 6657 && clothingpercentage <= 7575) {
+                clothingoutput.innerHTML = "White Hoodie";
+                var clothingchoice = "White Hoodie"
+            } else if (clothingpercentage > 7575 && clothingpercentage <= 8041) {
+                clothingoutput.innerHTML = "Red Robe";
+                var clothingchoice = "Red Robe"
+            } else if (clothingpercentage > 8041 && clothingpercentage <= 8403) {
+                clothingoutput.innerHTML = "Green Robe";
+                var clothingchoice = "Green Robe"
+            } else if (clothingpercentage > 8403 && clothingpercentage <= 8747) {
+                clothingoutput.innerHTML = "Blue Robe";
+                var clothingchoice = "Blue Robe"
+            } else if (clothingpercentage > 8747 && clothingpercentage <= 9058) {
+                clothingoutput.innerHTML = "White Robe";
+                var clothingchoice = "White Robe"
+            } else if (clothingpercentage > 9058 && clothingpercentage <= 9346) {
+                clothingoutput.innerHTML = "Black Robe";
+                var clothingchoice = "Black Robe"
+            } else if (clothingpercentage > 9346 && clothingpercentage <= 9491) {
+                clothingoutput.innerHTML = "Zebra Shirt";
+                var clothingchoice = "Zebra Shirt"
+            } else if (clothingpercentage > 9491 && clothingpercentage <= 9612) {
+                clothingoutput.innerHTML = "Gold Jacket";
+                var clothingchoice = "Gold Jacket"
+            } else if (clothingpercentage > 9612 && clothingpercentage <= 9715) {
+                clothingoutput.innerHTML = "Turtleneck";
+                var clothingchoice = "Turtleneck"
+            } else if (clothingpercentage > 9715 && clothingpercentage <= 9803) {
+                clothingoutput.innerHTML = "Rainbow Jacket";
+                var clothingchoice = "Rainbow Jacket"
+            } else if (clothingpercentage > 9803 && clothingpercentage <= 9876) {
+                clothingoutput.innerHTML = "Karate Gi";
+                var clothingchoice = "Karate Gi"
+            } else if (clothingpercentage > 9876 && clothingpercentage <= 9932) {
+                clothingoutput.innerHTML = "Cheetah Robe";
+                var clothingchoice = "Cheetah Robe"
+            } else if (clothingpercentage > 9932 && clothingpercentage <= 9969) {
+                clothingoutput.innerHTML = "Zebra Robe";
+                var clothingchoice = "Zebra Robe"
+            } else if (clothingpercentage > 9969 && clothingpercentage <= 9988) {
+                clothingoutput.innerHTML = "Monk Robe";
+                var clothingchoice = "Monk Robe"
+            } else {
+                clothingoutput.innerHTML = "Gold Suit";
+                var clothingchoice = "Gold Suit"
+            }
+            var commonclothing = ["Tie Dye Shirt", "Black Hoodie", "White Shirt", "Green Hoodie", "Blue Hoodie", "Red Hoodie", "White Hoodie"];
+            var uncommonclothing = ["Red Robe", "Green Robe", "Blue Robe", "White Robe", "Black Robe"];
+            var rareclothing = ["Zebra Shirt", "Gold Jacket", "Turtleneck", "Rainbow Jacket"];
+            var superrareclothing = ["Karate Gi", "Cheetah Robe", "Zebra Robe"];
+            var legendaryclothing = ["Monk Robe", "Gold Suit"];
+            if (commonclothing.includes(clothingchoice)) {
+                clothingrarityidcommon.innerHTML = "Common";
+                clothingrarityiduncommon.innerHTML = "";
+                clothingrarityidrare.innerHTML = "";
+                clothingrarityidsuperrare.innerHTML = "";
+                clothingrarityidlegendary.innerHTML = "";
+            } else if (uncommonclothing.includes(clothingchoice)) {
+                clothingrarityidcommon.innerHTML = "";
+                clothingrarityiduncommon.innerHTML = "Uncommon";
+                clothingrarityidrare.innerHTML = "";
+                clothingrarityidsuperrare.innerHTML = "";
+                clothingrarityidlegendary.innerHTML = "";
+            } else if (rareclothing.includes(clothingchoice)) {
+                clothingrarityidcommon.innerHTML = "";
+                clothingrarityiduncommon.innerHTML = "";
+                clothingrarityidrare.innerHTML = "Rare";
+                clothingrarityidsuperrare.innerHTML = "";
+                clothingrarityidlegendary.innerHTML = "";
+            } else if (superrareclothing.includes(clothingchoice)) {
+                clothingrarityidcommon.innerHTML = "";
+                clothingrarityiduncommon.innerHTML = "";
+                clothingrarityidrare.innerHTML = "";
+                clothingrarityidsuperrare.innerHTML = "Super Rare";
+                clothingrarityidlegendary.innerHTML = "";
+            } else if (legendaryclothing.includes(clothingchoice)) {
+                clothingrarityidcommon.innerHTML = "";
+                clothingrarityiduncommon.innerHTML = "";
+                clothingrarityidrare.innerHTML = "";
+                clothingrarityidsuperrare.innerHTML = "";
+                clothingrarityidlegendary.innerHTML = "Legendary";
+            } else {
+                clothingrarityidcommon.innerHTML = "";
+                clothingrarityiduncommon.innerHTML = "";
+                clothingrarityidrare.innerHTML = "";
+                clothingrarityidsuperrare.innerHTML = "";
+                clothingrarityidlegendary.innerHTML = "";
+            }
+        };
+        function chooseMouth(){
+            var mouthpercentage = Math.floor(Math.random() * 10000) + 1;
+            if (mouthpercentage >= 0 && mouthpercentage <= 1279) {
+                mouthoutput.innerHTML = "Neutral";
+                var mouthchoice = "Neutral"
+            } else if (mouthpercentage > 1279 && mouthpercentage <= 2472) {
+                mouthoutput.innerHTML = "Squiggle";
+                var mouthchoice = "Squiggle"
+            } else if (mouthpercentage > 2472 && mouthpercentage <= 3564) {
+                mouthoutput.innerHTML = "Smirk";
+                var mouthchoice = "Smirk"
+            } else if (mouthpercentage > 3564 && mouthpercentage <= 4602) {
+                mouthoutput.innerHTML = "Smile";
+                var mouthchoice = "Smile"
+            } else if (mouthpercentage > 4602 && mouthpercentage <= 5601) {
+                mouthoutput.innerHTML = "Frown";
+                var mouthchoice = "Frown"
+            } else if (mouthpercentage > 5601 && mouthpercentage <= 6382) {
+                mouthoutput.innerHTML = "Big Smile";
+                var mouthchoice = "Big Smile"
+            } else if (mouthpercentage > 6382 && mouthpercentage <= 7138) {
+                mouthoutput.innerHTML = "Big Tooth";
+                var mouthchoice = "Big Tooth"
+            } else if (mouthpercentage > 7138 && mouthpercentage <= 7792) {
+                mouthoutput.innerHTML = "Plump Lips";
+                var mouthchoice = "Plump Lips"
+            } else if (mouthpercentage > 7792 && mouthpercentage <= 8438) {
+                mouthoutput.innerHTML = "Drool";
+                var mouthchoice = "Drool"
+            } else if (mouthpercentage > 8438 && mouthpercentage <= 9083) {
+                mouthoutput.innerHTML = "Tongue";
+                var mouthchoice = "Tongue"
+            } else if (mouthpercentage > 9083 && mouthpercentage <= 9348) {
+                mouthoutput.innerHTML = "Vampire";
+                var mouthchoice = "Vampire"
+            } else if (mouthpercentage > 9348 && mouthpercentage <= 9602) {
+                mouthoutput.innerHTML = "Curly Mustache";
+                var mouthchoice = "Curly Mustache"
+            } else if (mouthpercentage > 9602 && mouthpercentage <= 9800) {
+                mouthoutput.innerHTML = "Hotdog";
+                var mouthchoice = "Hotdog"
+            } else if (mouthpercentage > 9800 && mouthpercentage <= 9879) {
+                mouthoutput.innerHTML = "Pizza";
+                var mouthchoice = "Pizza"
+            } else if (mouthpercentage > 9879 && mouthpercentage <= 9966) {
+                mouthoutput.innerHTML = "Robot";
+                var mouthchoice = "Robot"
+            } else if (mouthpercentage > 9966 && mouthpercentage <= 9990) {
+                mouthoutput.innerHTML = "Bubble Gum";
+                var mouthchoice = "Bubble Gum"
+            } else {
+                mouthoutput.innerHTML = "Rainbow Puke";
+                var mouthchoice = "Rainbow Puke"
+            }
+            var commonmouth = ["Neutral", "Squiggle",  "Smirk", "Smile", "Frown"];
+            var uncommonmouth = ["Big Smile", "Big Tooth", "Plump Lips", "Drool", "Tongue"];
+            var raremouth = ["Vampire", "Curly Mustache", "Hotdog"];
+            var superraremouth = ["Pizza", "Robot"];
+            var legendarymouth = ["Bubble Gum", "Rainbow Puke"];
+            if (commonmouth.includes(mouthchoice)) {
+                mouthrarityidcommon.innerHTML = "Common";
+                mouthrarityiduncommon.innerHTML = "";
+                mouthrarityidrare.innerHTML = "";
+                mouthrarityidsuperrare.innerHTML = "";
+                mouthrarityidlegendary.innerHTML = "";
+            } else if (uncommonmouth.includes(mouthchoice)) {
+                mouthrarityidcommon.innerHTML = "";
+                mouthrarityiduncommon.innerHTML = "Uncommon";
+                mouthrarityidrare.innerHTML = "";
+                mouthrarityidsuperrare.innerHTML = "";
+                mouthrarityidlegendary.innerHTML = "";
+            } else if (raremouth.includes(mouthchoice)) {
+                mouthrarityidcommon.innerHTML = "";
+                mouthrarityiduncommon.innerHTML = "";
+                mouthrarityidrare.innerHTML = "Rare";
+                mouthrarityidsuperrare.innerHTML = "";
+                mouthrarityidlegendary.innerHTML = "";
+            } else if (superraremouth.includes(mouthchoice)) {
+                mouthrarityidcommon.innerHTML = "";
+                mouthrarityiduncommon.innerHTML = "";
+                mouthrarityidrare.innerHTML = "";
+                mouthrarityidsuperrare.innerHTML = "Super Rare";
+                mouthrarityidlegendary.innerHTML = "";
+            } else if (legendarymouth.includes(mouthchoice)) {
+                mouthrarityidcommon.innerHTML = "";
+                mouthrarityiduncommon.innerHTML = "";
+                mouthrarityidrare.innerHTML = "";
+                mouthrarityidsuperrare.innerHTML = "";
+                mouthrarityidlegendary.innerHTML = "Legendary";
+            } else {
+                mouthrarityidcommon.innerHTML = "";
+                mouthrarityiduncommon.innerHTML = "";
+                mouthrarityidrare.innerHTML = "";
+                mouthrarityidsuperrare.innerHTML = "";
+                mouthrarityidlegendary.innerHTML = "";
+            }
+        };
+        function chooseEyes(){
+            var eyespercentage = Math.floor(Math.random() * 10000) + 1;
+            if (eyespercentage >= 0 && eyespercentage <= 2742) {
+                eyesoutput.innerHTML = "Happy";
+                var eyeschoice = "Happy"
+            } else if (eyespercentage > 2742 && eyespercentage <= 5100) {
+                eyesoutput.innerHTML = "Normal";
+                var eyeschoice = "Normal"
+            } else if (eyespercentage > 5100 && eyespercentage <= 7075) {
+                eyesoutput.innerHTML = "Angry";
+                var eyeschoice = "Angry"
+            } else if (eyespercentage > 7075 && eyespercentage <= 7966) {
+                eyesoutput.innerHTML = "Closed";
+                var eyeschoice = "Closed"
+            } else if (eyespercentage > 7966 && eyespercentage <= 8742) {
+                eyesoutput.innerHTML = "Sad";
+                var eyeschoice = "Sad"
+            } else if (eyespercentage > 8742 && eyespercentage <= 9385) {
+                eyesoutput.innerHTML = "Flames";
+                var eyeschoice = "Flames"
+            } else if (eyespercentage > 9385 && eyespercentage <= 9709) {
+                eyesoutput.innerHTML = "Swirly";
+                var eyeschoice = "Swirly"
+            } else if (eyespercentage > 9709 && eyespercentage <= 9862) {
+                eyesoutput.innerHTML = "Black Holes";
+                var eyeschoice = "Black Holes"
+            } else if (eyespercentage > 9862 && eyespercentage <= 9918) {
+                eyesoutput.innerHTML = "Laser Beams";
+                var eyeschoice = "Laser Beams"
+            } else if (eyespercentage > 9918 && eyespercentage <= 9970) {
+                eyesoutput.innerHTML = "Rainbow";
+                var eyeschoice = "Rainbow"
+            } else if (eyespercentage > 9970 && eyespercentage <= 9989) {
+                eyesoutput.innerHTML = "Bitcoin";
+                var eyeschoice = "Bitcoin"
+            } else {
+                eyesoutput.innerHTML = "Zombie";
+                var eyeschoice = "Zombie"
+            }
+            var commoneyes = ["Happy", "Normal", "Angry"];
+            var uncommoneyes = ["Closed", "Sad", "Flames"];
+            var rareeyes = ["Swirly", "Black Holes"];
+            var superrareeyes = ["Laser Beams", "Rainbow"];
+            var legendaryeyes = ["Bitcoin", "Zombie"];
+            if (commoneyes.includes(eyeschoice)) {
+                eyesrarityidcommon.innerHTML = "Common";
+                eyesrarityiduncommon.innerHTML = "";
+                eyesrarityidrare.innerHTML = "";
+                eyesrarityidsuperrare.innerHTML = "";
+                eyesrarityidlegendary.innerHTML = "";
+            } else if (uncommoneyes.includes(eyeschoice)) {
+                eyesrarityidcommon.innerHTML = "";
+                eyesrarityiduncommon.innerHTML = "Uncommon";
+                eyesrarityidrare.innerHTML = "";
+                eyesrarityidsuperrare.innerHTML = "";
+                eyesrarityidlegendary.innerHTML = "";
+            } else if (rareeyes.includes(eyeschoice)) {
+                eyesrarityidcommon.innerHTML = "";
+                eyesrarityiduncommon.innerHTML = "";
+                eyesrarityidrare.innerHTML = "Rare";
+                eyesrarityidsuperrare.innerHTML = "";
+                eyesrarityidlegendary.innerHTML = "";
+            } else if (superrareeyes.includes(eyeschoice)) {
+                eyesrarityidcommon.innerHTML = "";
+                eyesrarityiduncommon.innerHTML = "";
+                eyesrarityidrare.innerHTML = "";
+                eyesrarityidsuperrare.innerHTML = "Super Rare";
+                eyesrarityidlegendary.innerHTML = "";
+            } else if (legendaryeyes.includes(eyeschoice)) {
+                eyesrarityidcommon.innerHTML = "";
+                eyesrarityiduncommon.innerHTML = "";
+                eyesrarityidrare.innerHTML = "";
+                eyesrarityidsuperrare.innerHTML = "";
+                eyesrarityidlegendary.innerHTML = "Legendary";
+            } else {
+                eyesrarityidcommon.innerHTML = "";
+                eyesrarityiduncommon.innerHTML = "";
+                eyesrarityidrare.innerHTML = "";
+                eyesrarityidsuperrare.innerHTML = "";
+                eyesrarityidlegendary.innerHTML = "";
+            }
+        };
+        function chooseAccessories(){
+            var accessoriespercentage = Math.floor(Math.random() * 10000) + 1;
+            if (accessoriespercentage >= 0 && accessoriespercentage <= 1154) {
+                accessoriesoutput.innerHTML = "Star Glasses";
+                var accessorieschoice = "Star Glasses"
+            } else if (accessoriespercentage > 1154 && accessoriespercentage <= 2177) {
+                accessoriesoutput.innerHTML = "Flame Glasses";
+                var accessorieschoice = "Flame Glasses"
+            } else if (accessoriespercentage > 2177 && accessoriespercentage <= 3144) {
+                accessoriesoutput.innerHTML = "Peace Glasses";
+                var accessorieschoice = "Peace Glasses"
+            } else if (accessoriespercentage > 3144 && accessoriespercentage <= 4031) {
+                accessoriesoutput.innerHTML = "Aviator Glasses";
+                var accessorieschoice = "Aviator Glasses"
+            } else if (accessoriespercentage > 4031 && accessoriespercentage <= 4410) {
+                accessoriesoutput.innerHTML = "Nerd Glasses";
+                var accessorieschoice = "Nerd Glasses"
+            } else if (accessoriespercentage > 4410 && accessoriespercentage <= 4620) {
+                accessoriesoutput.innerHTML = "Monocle";
+                var accessorieschoice = "Monocle"
+            } else if (accessoriespercentage > 4620 && accessoriespercentage <= 4771) {
+                accessoriesoutput.innerHTML = "Face Mask";
+                var accessorieschoice = "Face Mask"
+            } else if (accessoriespercentage > 4771 && accessoriespercentage <= 4879) {
+                accessoriesoutput.innerHTML = "Designer Glasses";
+                var accessorieschoice = "Designer Glasses"
+            } else if (accessoriespercentage > 4879 && accessoriespercentage <= 4933) {
+                accessoriesoutput.innerHTML = "Clout Glasses";
+                var accessorieschoice = "Clout Glasses"
+            } else if (accessoriespercentage > 4933 && accessoriespercentage <= 4982) {
+                accessoriesoutput.innerHTML = "VR Headset";
+                var accessorieschoice = "VR Headset"
+            } else if (accessoriespercentage > 4982 && accessoriespercentage <= 5000) {
+                accessoriesoutput.innerHTML = "Ski Goggles";
+                var accessorieschoice = "Ski Goggles"
+            } else {
+                accessoriesoutputnone.innerHTML = "No Accessories" 
+            }
+            var commonaccessories = ["Star Glasses", "Flame Glasses", "Peace Glasses", "Aviator Glasses"];
+            var uncommonaccessories = ["Nerd Glasses", "Monocle"];
+            var rareaccessories = ["Face Mask", "Designer Glasses"];
+            var superrareaccessories = ["Clout Glasses", "VR Headset"];
+            var legendaryaccessories = ["Ski Goggles"];
+            if (commonaccessories.includes(accessorieschoice)) {
+                accessoriesrarityidcommon.innerHTML = "Common";
+                accessoriesrarityiduncommon.innerHTML = "";
+                accessoriesrarityidrare.innerHTML = "";
+                accessoriesrarityidsuperrare.innerHTML = "";
+                accessoriesrarityidlegendary.innerHTML = "";
+                accessoriesoutputnone.innerHTML = "";
+            } else if (uncommonaccessories.includes(accessorieschoice)) {
+                accessoriesrarityidcommon.innerHTML = "";
+                accessoriesrarityiduncommon.innerHTML = "Uncommon";
+                accessoriesrarityidrare.innerHTML = "";
+                accessoriesrarityidsuperrare.innerHTML = "";
+                accessoriesrarityidlegendary.innerHTML = "";
+                accessoriesoutputnone.innerHTML = "";
+            } else if (rareaccessories.includes(accessorieschoice)) {
+                accessoriesrarityidcommon.innerHTML = "";
+                accessoriesrarityiduncommon.innerHTML = "";
+                accessoriesrarityidrare.innerHTML = "Rare";
+                accessoriesrarityidsuperrare.innerHTML = "";
+                accessoriesrarityidlegendary.innerHTML = "";
+                accessoriesoutputnone.innerHTML = "";
+            } else if (superrareaccessories.includes(accessorieschoice)) {
+                accessoriesrarityidcommon.innerHTML = "";
+                accessoriesrarityiduncommon.innerHTML = "";
+                accessoriesrarityidrare.innerHTML = "";
+                accessoriesrarityidsuperrare.innerHTML = "Super Rare";
+                accessoriesrarityidlegendary.innerHTML = "";
+                accessoriesoutputnone.innerHTML = "";
+            } else if (legendaryaccessories.includes(accessorieschoice)) {
+                accessoriesrarityidcommon.innerHTML = "";
+                accessoriesrarityiduncommon.innerHTML = "";
+                accessoriesrarityidrare.innerHTML = "";
+                accessoriesrarityidsuperrare.innerHTML = "";
+                accessoriesrarityidlegendary.innerHTML = "Legendary";
+                accessoriesoutputnone.innerHTML = "";
+            } else {
+                accessoriesrarityidcommon.innerHTML = "";
+                accessoriesrarityiduncommon.innerHTML = "";
+                accessoriesrarityidrare.innerHTML = "";
+                accessoriesrarityidsuperrare.innerHTML = "";
+                accessoriesrarityidlegendary.innerHTML = "";
+                accessoriesoutput.innerHTML = "";
+            }
+        };
+        function chooseSkinTexture(){
+            var skintexturepercentage = Math.floor(Math.random() * 10000) + 1;
+            if (skintexturepercentage >= 0 && skintexturepercentage <= 1212) {
+                skintextureoutput.innerHTML = "Yellow";
+                var skintexturechoice = "Yellow"
+            } else if (skintexturepercentage > 1212 && skintexturepercentage <= 2411) {
+                skintextureoutput.innerHTML = "Blue";
+                var skintexturechoice = "Blue"
+            } else if (skintexturepercentage > 2411 && skintexturepercentage <= 3591) {
+                skintextureoutput.innerHTML = "Silver";
+                var skintexturechoice = "Silver"
+            } else if (skintexturepercentage > 3591 && skintexturepercentage <= 4731) {
+                skintextureoutput.innerHTML = "Purple";
+                var skintexturechoice = "Purple"
+            } else if (skintexturepercentage > 4731 && skintexturepercentage <= 5804) {
+                skintextureoutput.innerHTML = "White";
+                var skintexturechoice = "White"
+            } else if (skintexturepercentage > 5804 && skintexturepercentage <= 6833) {
+                skintextureoutput.innerHTML = "Black";
+                var skintexturechoice = "Black"
+            } else if (skintexturepercentage > 6833 && skintexturepercentage <= 7829) {
+                skintextureoutput.innerHTML = "Red";
+                var skintexturechoice = "Red"
+            } else if (skintexturepercentage > 7829 && skintexturepercentage <= 8250) {
+                skintextureoutput.innerHTML = "Blue Camo";
+                var skintexturechoice = "Blue Camo"
+            } else if (skintexturepercentage > 8250 && skintexturepercentage <= 8661) {
+                skintextureoutput.innerHTML = "Cow";
+                var skintexturechoice = "Cow"
+            } else if (skintexturepercentage > 8661 && skintexturepercentage <= 9050) {
+                skintextureoutput.innerHTML = "Zebra";
+                var skintexturechoice = "Zebra"
+            } else if (skintexturepercentage > 9050 && skintexturepercentage <= 9405) {
+                skintextureoutput.innerHTML = "Cheetah";
+                var skintexturechoice = "Cheetah"
+            } else if (skintexturepercentage > 9405 && skintexturepercentage <= 9582) {
+                skintextureoutput.innerHTML = "Rainbow";
+                var skintexturechoice = "Rainbow"
+            } else if (skintexturepercentage > 9582 && skintexturepercentage <= 9736) {
+                skintextureoutput.innerHTML = "Psychedelic";
+                var skintexturechoice = "Psychedelic"
+            } else if (skintexturepercentage > 9736 && skintexturepercentage <= 9869) {
+                skintextureoutput.innerHTML = "Webbed Red";
+                var skintexturechoice = "Webbed Red"
+            } else if (skintexturepercentage > 9869 && skintexturepercentage <= 9940) {
+                skintextureoutput.innerHTML = "Abstract";
+                var skintexturechoice = "Abstract"
+            } else if (skintexturepercentage > 9940 && skintexturepercentage <= 9985) {
+                skintextureoutput.innerHTML = "Gold";
+                var skintexturechoice = "Gold"
+            } else {
+                skintextureoutput.innerHTML = "Zombie";
+                var skintexturechoice = "Zombie"
+            }
+            var commonskintexture = ["Yellow", "Blue", "Silver", "Purple", "White", "Black", "Red"];
+            var uncommonskintexture = ["Blue Camo", "Cow", "Zebra", "Cheetah"];
+            var rareskintexture = ["Rainbow", "Psychedelic", "Webbed Red"];
+            var superrareskintexture = ["Abstract", "Gold"];
+            var legendaryskintexture = ["Zombie"];
+            if (commonskintexture.includes(skintexturechoice)) {
+                skintexturerarityidcommon.innerHTML = "Common";
+                skintexturerarityiduncommon.innerHTML = "";
+                skintexturerarityidrare.innerHTML = "";
+                skintexturerarityidsuperrare.innerHTML = "";
+                skintexturerarityidlegendary.innerHTML = "";
+            } else if (uncommonskintexture.includes(skintexturechoice)) {
+                skintexturerarityidcommon.innerHTML = "";
+                skintexturerarityiduncommon.innerHTML = "Uncommon";
+                skintexturerarityidrare.innerHTML = "";
+                skintexturerarityidsuperrare.innerHTML = "";
+                skintexturerarityidlegendary.innerHTML = "";
+            } else if (rareskintexture.includes(skintexturechoice)) {
+                skintexturerarityidcommon.innerHTML = "";
+                skintexturerarityiduncommon.innerHTML = "";
+                skintexturerarityidrare.innerHTML = "Rare";
+                skintexturerarityidsuperrare.innerHTML = "";
+                skintexturerarityidlegendary.innerHTML = "";
+            } else if (superrareskintexture.includes(skintexturechoice)) {
+                skintexturerarityidcommon.innerHTML = "";
+                skintexturerarityiduncommon.innerHTML = "";
+                skintexturerarityidrare.innerHTML = "";
+                skintexturerarityidsuperrare.innerHTML = "Super Rare";
+                skintexturerarityidlegendary.innerHTML = "";
+            } else if (legendaryskintexture.includes(skintexturechoice)) {
+                skintexturerarityidcommon.innerHTML = "";
+                skintexturerarityiduncommon.innerHTML = "";
+                skintexturerarityidrare.innerHTML = "";
+                skintexturerarityidsuperrare.innerHTML = "";
+                skintexturerarityidlegendary.innerHTML = "Legendary";
+            } else {
+                skintexturerarityidcommon.innerHTML = "";
+                skintexturerarityiduncommon.innerHTML = "";
+                skintexturerarityidrare.innerHTML = "";
+                skintexturerarityidsuperrare.innerHTML = "";
+                skintexturerarityidlegendary.innerHTML = "";
+            }
+        };
+        function chooseEarrings(){
+            var earringspercentage = Math.floor(Math.random() * 10000) + 1;
+            if (earringspercentage >= 0 && earringspercentage <= 1758) {
+                earringsoutput.innerHTML = "Silver Stud";
+                var earringschoice = "Silver Stud"
+            } else if (earringspercentage > 1758 && earringspercentage <= 3505) {
+                earringsoutput.innerHTML = "Peace Sign";
+                var earringschoice = "Peace Sign"
+            } else if (earringspercentage > 3505 && earringspercentage <= 5180) {
+                earringsoutput.innerHTML = "Cross";
+                var earringschoice = "Cross"
+            } else if (earringspercentage > 5180 && earringspercentage <= 6556) {
+                earringsoutput.innerHTML = "Diamond Stud";
+                var earringschoice = "Diamond Stud"
+            } else if (earringspercentage > 6556 && earringspercentage <= 7810) {
+                earringsoutput.innerHTML = "Gold Hoop";
+                var earringschoice = "Gold Hoop"
+            } else if (earringspercentage > 7810 && earringspercentage <= 8595) {
+                earringsoutput.innerHTML = "Dangling Ruby";
+                var earringschoice = "Dangling Ruby"
+            } else if (earringspercentage > 8595 && earringspercentage <= 8903) {
+                earringsoutput.innerHTML = "Lightning";
+                var earringschoice = "Lightning"
+            } else if (earringspercentage > 8903 && earringspercentage <= 9000) {
+                earringsoutput.innerHTML = "Bitcoin";
+                var earringschoice = "Bitcoin"
+            } else {
+                earringsoutputnone.innerHTML = "No Earrings"
+            }
+            var commonearrings = ["Silver Stud", "Peace Sign", "Cross"];
+            var uncommonearrings = ["Diamond Stud", "Gold Hoop"];
+            var rareearrings = ["Dangling Ruby"];
+            var superrareearrings = ["Lightning"];
+            var legendaryearrings = ["Bitcoin"];
+            if (commonearrings.includes(earringschoice)) {
+                earringsrarityidcommon.innerHTML = "Common";
+                earringsrarityiduncommon.innerHTML = "";
+                earringsrarityidrare.innerHTML = "";
+                earringsrarityidsuperrare.innerHTML = "";
+                earringsrarityidlegendary.innerHTML = "";
+                earringsoutputnone.innerHTML = "";
+            } else if (uncommonearrings.includes(earringschoice)) {
+                earringsrarityidcommon.innerHTML = "";
+                earringsrarityiduncommon.innerHTML = "Uncommon";
+                earringsrarityidrare.innerHTML = "";
+                earringsrarityidsuperrare.innerHTML = "";
+                earringsrarityidlegendary.innerHTML = "";
+                earringsoutputnone.innerHTML = "";
+            } else if (rareearrings.includes(earringschoice)) {
+                earringsrarityidcommon.innerHTML = "";
+                earringsrarityiduncommon.innerHTML = "";
+                earringsrarityidrare.innerHTML = "Rare";
+                earringsrarityidsuperrare.innerHTML = "";
+                earringsrarityidlegendary.innerHTML = "";
+                earringsoutputnone.innerHTML = "";
+            } else if (superrareearrings.includes(earringschoice)) {
+                earringsrarityidcommon.innerHTML = "";
+                earringsrarityiduncommon.innerHTML = "";
+                earringsrarityidrare.innerHTML = "";
+                earringsrarityidsuperrare.innerHTML = "Super Rare";
+                earringsrarityidlegendary.innerHTML = "";
+                earringsoutputnone.innerHTML = "";
+            } else if (legendaryearrings.includes(earringschoice)) {
+                earringsrarityidcommon.innerHTML = "";
+                earringsrarityiduncommon.innerHTML = "";
+                earringsrarityidrare.innerHTML = "";
+                earringsrarityidsuperrare.innerHTML = "";
+                earringsrarityidlegendary.innerHTML = "Legendary";
+                earringsoutputnone.innerHTML = "";
+            } else {
+                earringsrarityidcommon.innerHTML = "";
+                earringsrarityiduncommon.innerHTML = "";
+                earringsrarityidrare.innerHTML = "";
+                earringsrarityidsuperrare.innerHTML = "";
+                earringsrarityidlegendary.innerHTML = "";
+                earringsoutput.innerHTML = "";
+            }
+        };
+        function chooseBackground(){
+            var backgroundpercentage = Math.floor(Math.random() * 10000) + 1;
+            if (backgroundpercentage >= 0 && backgroundpercentage <= 3500) {
+                backgroundoutput.innerHTML = "Grey";
+                var backgroundchoice = "Grey"
+            } else if (backgroundpercentage > 3500 && backgroundpercentage <= 6500) {
+                backgroundoutput.innerHTML = "Green";
+                var backgroundchoice = "Green"
+            } else if (backgroundpercentage > 6500 && backgroundpercentage <= 8500) {
+                backgroundoutput.innerHTML = "Blue";
+                var backgroundchoice = "Blue"
+            } else if (backgroundpercentage > 8500 && backgroundpercentage <= 9500) {
+                backgroundoutput.innerHTML = "Purple";
+                var backgroundchoice = "Purple"
+            } else {
+                backgroundoutput.innerHTML = "Gold";
+                var backgroundchoice = "Gold"
+            }
+            var commonbackground = ["Grey"];
+            var uncommonbackground = ["Green"];
+            var rarebackground = ["Blue"];
+            var superrarebackground = ["Purple"];
+            var legendarybackground = ["Gold"];
+            if (commonbackground.includes(backgroundchoice)) {
+                backgroundrarityidcommon.innerHTML = "Common";
+                backgroundrarityiduncommon.innerHTML = "";
+                backgroundrarityidrare.innerHTML = "";
+                backgroundrarityidsuperrare.innerHTML = "";
+                backgroundrarityidlegendary.innerHTML = "";
+            } else if (uncommonbackground.includes(backgroundchoice)) {
+                backgroundrarityidcommon.innerHTML = "";
+                backgroundrarityiduncommon.innerHTML = "Uncommon";
+                backgroundrarityidrare.innerHTML = "";
+                backgroundrarityidsuperrare.innerHTML = "";
+                backgroundrarityidlegendary.innerHTML = "";
+            } else if (rarebackground.includes(backgroundchoice)) {
+                backgroundrarityidcommon.innerHTML = "";
+                backgroundrarityiduncommon.innerHTML = "";
+                backgroundrarityidrare.innerHTML = "Rare";
+                backgroundrarityidsuperrare.innerHTML = "";
+                backgroundrarityidlegendary.innerHTML = "";
+            } else if (superrarebackground.includes(backgroundchoice)) {
+                backgroundrarityidcommon.innerHTML = "";
+                backgroundrarityiduncommon.innerHTML = "";
+                backgroundrarityidrare.innerHTML = "";
+                backgroundrarityidsuperrare.innerHTML = "Super Rare";
+                backgroundrarityidlegendary.innerHTML = "";
+            } else if (legendarybackground.includes(backgroundchoice)) {
+                backgroundrarityidcommon.innerHTML = "";
+                backgroundrarityiduncommon.innerHTML = "";
+                backgroundrarityidrare.innerHTML = "";
+                backgroundrarityidsuperrare.innerHTML = "";
+                backgroundrarityidlegendary.innerHTML = "Legendary";
+            } else {
+                backgroundrarityidcommon.innerHTML = "";
+                backgroundrarityiduncommon.innerHTML = "";
+                backgroundrarityidrare.innerHTML = "";
+                backgroundrarityidsuperrare.innerHTML = "";
+                backgroundrarityidlegendary.innerHTML = "";
+            }
+        };
+    </script>
+</body>
+</html>
